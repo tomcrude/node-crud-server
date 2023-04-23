@@ -10,7 +10,9 @@ const midd = (0, exports.express)();
 // Here are all the middlewares that my API use.
 midd.use(bodyParser.urlencoded({ extended: true }));
 midd.use(morgan("dev"));
-midd.use(cors());
+midd.use(cors({
+    origin: "https://react-crud-frontend-lime.vercel.app"
+  }));
 midd.use(exports.express.json());
 midd.use(exports.express.static(path.join(__dirname, "../../public/images")));
 midd.use(exports.express.static(path.join(__dirname, "../../public/videos")));
